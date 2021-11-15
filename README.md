@@ -182,7 +182,8 @@ const onClick = useCallback(()=>{
 * 주로 비동기 작업을 처리 할 때 사용
 * action을 dispatch 했을 때 reducer를 실행하기 전에 추가 작업을 실행 할 수 있게 해준다.
 * redux-thunk와 redux-saga 두가지가 가장 자주 사용된다.
-* 미들웨어를 적용 할 때는 applyMiddleware(미들웨어) 함수를 사용한다. (logger를 사용 할 때는 맨뒤에 logger를 적용시켜야함 example : applayMiddleware(thunk,logger) )
+* 미들웨어를 적용 할 때는 applyMiddleware(미들웨어) 함수를 사용한다.    
+(logger를 사용 할 때는 맨뒤에 logger를 적용시켜야함 example : applayMiddleware(thunk,logger) )
 * 미들웨어를 사용할 경우 리덕스의 흐름 : 액션 -> 미들웨어 -> 리듀서 -> 스토어
 
 ### 가능한 추가 작업
@@ -206,14 +207,17 @@ function middleware(store){
     }
 }
 ```
-> store는 리덕스 스토어 인스턴스( dispatch, getState, subscribe 내장함수가 존재함)이다.   
-next는 액션을 다음 미들웨어에 전달하는 함수 next(action) 같은 식으로 사용 (next를 호출하지 않는다면 액션이 무시처리되어 리듀서로 전달되지 않음)   
-action은 현재 처리하고 있는 액션 객체   
+>* store는 리덕스 스토어 인스턴스( dispatch, getState, subscribe 내장함수가 존재함)이다.   
+>* action은 현재 처리하고 있는 액션 객체   
+>* next는 액션을 다음 미들웨어에 전달하는 함수 next(action) 같은 식으로 사용    
+>  (next를 호출하지 않는다면 액션이 무시처리되어 리듀서로 전달되지 않음)   
+
 
 ## redux-thunk
 * 비동기 작업을 처리 할 때 가장 많이 사용하는 미들웨어
 * *액션 객체가 아닌 함수를 디스패치 할 수 있다.*
-* 함수를 디스패치 할 때는 dispatch와 getState를 파라미터로 받아와야 한다. (getState를 사용하지 않을 경우 받아오지 않아도 무관함)
+* 함수를 디스패치 할 때는 dispatch와 getState를 파라미터로 받아와야 한다.   
+(getState를 사용하지 않을 경우 받아오지 않아도 무관함)
 
 ### Thunk 예제
 ```javascript
