@@ -252,7 +252,7 @@ export const callApi = () => async dispatch =>{
 > ### Generator문법
 >* 함수를 작성 할 때 함수를 특정 구간에 멈추거나 되돌아가게 할 수 잇다.   
 >* *function* * 이라는 키워드를 사용해 메서드를 작성한다    
->* *yield* 라는 키워드를 사용해 일시적으로 정시될 수 있고  메서드.next() 함수를 사용해 다시 시작 될 수 있다.
+>* *yield* 라는 키워드를 사용해 일시적으로 정지되고 메서드.next() 함수를 사용해 다시 시작 될 수 있다.
 
 ```javascript
 function* generatorFunction(){
@@ -287,6 +287,8 @@ generator2.next(1); // value : undefined, done : false
 generator2.next(2); // value : undefined, done : false
 generator2.next(); // value : 3, done : true
 ```
+내용추가필요
+
 
 [목차로 돌아가기](#index)
 
