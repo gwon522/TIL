@@ -256,11 +256,11 @@ export const callApi = () => async dispatch =>{
 
 ```javascript
 function* generatorFunction(){
-    console.l('1');
+    console.log('1');
     yield 1;
-    console.l('2');
+    console.log('2');
     yield 2;
-    console.l('3');
+    console.log('3');
     yield 3;
     return 4;
 }
@@ -287,9 +287,63 @@ generator2.next(1); // value : undefined, done : false
 generator2.next(2); // value : undefined, done : false
 generator2.next(); // value : 3, done : true
 ```
-내용추가필요
+
+### saga의 주요함수
+* delay(ms) => 설정된 시간 이후에 resolve하는 객체를 리턴한다  
+* put({type,payload}) => 특정 액션을 dispatch 하도록 한다
+* takeEvery(type, function) => 들어오는 모든 액션에 대해 특정 작업을 처리해준다.
+* takeLatest(type,function) => 기존 진행 중이던 작업을 취소하고 가장 마지막 작업만 수행
+* call(function,parameter) => 특정 함수를 호출하고 결과물이 반환 될 때까지 기다림
+* all([ ]) => 제네레이터 함수를 배열로 넣어주면 병행적으로 동시에 수행 Promise.all과 비슷함
 
 
+
+### redux-saga 적용해보기
+```javascript
+/* saga 메서드 구현 */
+const GET_DATA = 'GET_DATA';
+
+function* getDataSaga(){
+    try{
+        const count = yield call(DataAPI.getData);
+        //성공시
+        yield put({
+            type : GET_DATA_SUCCESS,
+            payload : data
+        });
+    }catch(e){
+        //실패시
+        yield put({
+            type : GET_DATA_ERROR,
+            error : true,
+            payload : e
+        });
+    }
+}
+
+export function* dataSaga(){
+    yield takeEvery(GET_DATA,getDataSaga);
+}
+
+/* 루트 메소드 index */
+//미들웨어에 적용할 rootSaga 만들기
+const rootReducer = combineReducers(리듀서들)
+export function* rootSage(){
+    //위에서 만든 dataSaga를 넣어줌
+    yield all([dataSaga()]); //all은 배열 안의 여러 사가를 동시에 실행시켜 준다.
+}
+
+/* 스토어 */
+//미들웨어에 적용
+const sagaMiddleware = createSagaMiddleware(); // 사가 미들웨어를 만듬
+
+const store = createStore( rootReducer, applyMiddleware(sagaMiddleware))
+
+//스토어 생성 후 실행 시켜줘야함
+sagaMiddleware.run(rootSaga); 
+```
 [목차로 돌아가기](#index)
 
 ---
+
+## ㅇㅇ
