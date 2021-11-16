@@ -4,7 +4,7 @@
     start Date : 2021/11/11
 * [2021/11/11 : Redux-action](#redux-action) 
 * [2021/11/12 : immer.js ](#immer)
-* [2021/11/15 : Redux-middleware](#redux-middleware) & [redux-thunk](#redux-thunk) & [redux-saga](#redux-saga) saga 추가 필요
+* [2021/11/15 : Redux-middleware](#redux-middleware) & [redux-thunk](#redux-thunk) & [redux-saga](#redux-saga)
 
 ---
 ## redux-action
