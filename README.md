@@ -4,7 +4,8 @@
     start Date : 2021/11/11
 * [2021/11/11 : Redux-action](#redux-action) 
 * [2021/11/12 : immer.js ](#immer)
-* [2021/11/15 : Redux-middleware](#redux-middleware) & [redux-thunk](#redux-thunk) & [redux-saga](#redux-saga)
+* [2021/11/15 : Redux-middleware](#redux-middleware) & [redux-thunk](#redux-thunk) & [redux-saga](#redux-saga)   
+* [2021/11/17 : 리액트 프로젝트 환경 설정](#리액트프로젝트환경설정) 내용추가 필요
 
 ---
 ## redux-action
@@ -346,4 +347,62 @@ sagaMiddleware.run(rootSaga);
 
 ---
 
-## ㅇㅇ
+## 리액트 프로젝트 환경설정   
+
+### npm   
+* node.js의 의존성과 패키지 관리를 위한 패키지 매니저   
+* npm install으로 package.josn 파일에 의존성을 지정할 수 있음   
+* 버전관리 지원   
+
+### npx   
+* node 패키지를 실행시키는 도구(npm5.2.0 이상 지원)
+> npx의 역할
+> 1. 실행할 패키지가 경로에 있는지 확인   
+> 2. 경로에 있으면 실행
+> 3. 경로에 없을 경우 npx가 최신 버전 패키지를 설치 한 후 실행
+
+### create-react-app   
+* 리액트의 기초환경을 설정해주는 보일러 플레이트이다.
+* 바벨, 웹팩등 다양한 패키지가 포함되어있다   (ES6+ 문법, CSS 후처리도 포함)   
+
+### ESLint & Prettier 
+> ### ESLint   
+> 소스코드를 분석해 문법적 오류, 스타일적 오류, 구조 등에 표시를 달아주는 도구   
+> 협업 시 스타일을 통일 시킬 수 있다   
+> ### Prettier
+> 코드를 정렬해 주는 Code Formatter
+> 정해진 규칙에 따라 Prettier가 자동으로 formatting을 해줌
+
+### 사용법
+> root 폴더에 .prettierrc 생성 및 설정
+```javascript
+    {
+    "singleQuote": true, // '' 로 사용할것인지
+    "semi": true, //세미콜론 사용할지
+    "tabWidth": 2, //들여쓰기 칸수
+    "trailingComma": "all", //쉼표를 붙일지 "none", "es5", "all" 가능
+    "printWidth": 80 //한줄에 몇칸까지 작성할지
+    }
+//추가옵션은 https://prettier.io/docs/en/options.html 에서 확인
+```
+> VSCode 확장에서 Prettier 설치 후 환경설정에서 Format On Save 체크    
+>   
+> ESLint 설치 후 환경설정에서 Auto Fix on Save 체크   
+> npm install eslint-config-prettier 후 pakage.json에 아래코드 추가
+```javascript
+    "eslintConfig" :{
+        "extends":[
+            "prettier"
+        ],
+        "rules": {
+        "react/jsx-filename-extension": 0 //파일을 .jsx 확장자 규칙 무시
+        }
+    }
+```
+
+
+
+
+[목차로 돌아가기](#index)
+
+---
