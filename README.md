@@ -5,7 +5,7 @@
 * [2021/11/11 : Redux-action](#redux-action) 
 * [2021/11/12 : immer.js ](#immer)
 * [2021/11/15 : Redux-middleware](#redux-middleware) & [redux-thunk](#redux-thunk) & [redux-saga](#redux-saga)   
-* [2021/11/17 : 리액트 프로젝트 환경 설정](#리액트프로젝트환경설정) 내용추가 필요
+* [2021/11/17 : 리액트 프로젝트 환경 설정](#리액트프로젝트환경설정)
 
 ---
 ## redux-action
@@ -352,16 +352,22 @@ sagaMiddleware.run(rootSaga);
 ### npm   
 * node.js의 의존성과 패키지 관리를 위한 패키지 매니저   
 * npm install으로 package.josn 파일에 의존성을 지정할 수 있음   
-* 버전관리 지원   
+* 버전관리 지원  
+> 패키지를 다운로드 하고 싶을 때    
+> npm i 패키지명 혹은 npm install 패키지명 으로 다운 가능   
+> 인스톨 명령어를 사용할때 -D는 --save-dev -P는 --save-prod 
+> -g는 글로벌에 인스톨
 
 ### npx   
 * node 패키지를 실행시키는 도구(npm5.2.0 이상 지원)
+npx 패키지명 으로 사용
 > npx의 역할
 > 1. 실행할 패키지가 경로에 있는지 확인   
 > 2. 경로에 있으면 실행
 > 3. 경로에 없을 경우 npx가 최신 버전 패키지를 설치 한 후 실행
 
 ### create-react-app   
+* npm i create-react-app
 * 리액트의 기초환경을 설정해주는 보일러 플레이트이다.
 * 바벨, 웹팩등 다양한 패키지가 포함되어있다   (ES6+ 문법, CSS 후처리도 포함)   
 
@@ -399,7 +405,6 @@ sagaMiddleware.run(rootSaga);
         }
     }
 ```
-
 
 
 
