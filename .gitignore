@@ -6,3 +6,4 @@ TIL.iml
 .idea/vcs.xml
 *.DS_Store
 *.class
+*Run.java
