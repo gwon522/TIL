@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class DFSandBFS1260 {
+public class Beak1260 {
     static int[][] map;
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);

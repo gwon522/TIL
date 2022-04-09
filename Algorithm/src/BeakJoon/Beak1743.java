@@ -20,7 +20,7 @@ class Node{
     }
 }
 
-public class AvoidFood1743 {
+public class Beak1743 {
     static int[][] map;
     static boolean[][] visit;
     static int[] dx = {-1,1,0,0};

@@ -7,3 +7,13 @@ TIL.iml
 *.DS_Store
 *.class
 *Run.java
+.gradle/6.7/gc.properties
+.gradle/6.7/fileChanges/last-build.bin
+.gradle/6.7/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/buildOutputCleanup/cache.properties
+.gradle/checksums/checksums.lock
+.gradle/configuration-cache/gc.properties
+.gradle/vcs-1/gc.properties
+Algorithm/src/BeakJoon/Test.java
+Algorithm/src/Run.java
